@@ -1,0 +1,14 @@
+# Intellij
+.idea/
+
+# QTCreator
+pacman.pro.user
+
+# qmake
+.qmake.stash
+
+# make
+build/
+Makefile
+
+pacman
