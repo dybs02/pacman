@@ -4,7 +4,7 @@
 Pacman::Pacman(TileMap* tileMap)
     : QGraphicsPixmapItem(), Entity(13, 26, tileMap)
 {
-    leftPixmap = objectsPixmap.copy(180, 0, TILE_SIZE, TILE_SIZE);
+    leftPixmap = objectsPixmap.copy(210, 0, OBJECT_SIZE, OBJECT_SIZE).scaled(TILE_SIZE, TILE_SIZE);
     setPixmap(leftPixmap);
 
     setFlag(QGraphicsItem::ItemIsFocusable);

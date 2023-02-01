@@ -2,8 +2,12 @@
 #define DEFINITIONS_H
 
 #define TILE_SIZE 20
+#define OBJECT_SIZE 30
 #define WIDTH 28
 #define HEIGHT 36
+
+#define GHOST_SPAWN_X 14
+#define GHOST_SPAWN_Y 17
 
 #define MOVE_SPPED 0.5f
 #define FPS 60
