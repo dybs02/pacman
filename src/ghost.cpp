@@ -4,9 +4,6 @@
 Ghost::Ghost(int tileX, int tileY, TileMap* tileMap)
     : QGraphicsPixmapItem(), Entity(tileX, tileY, tileMap)
 {
-    setPixmap(objectsPixmap.copy(180, 30, TILE_SIZE, TILE_SIZE));
-    currnetDirection = LEFT;
-
     targetX = 0;
     targetY = 0;
 }
@@ -78,9 +75,6 @@ QPoint Ghost::nextTile()
             newDirection = RIGHT;
         }
     }
-
-    qDebug() << "target: x=" << targetX << ", y="<< targetY;
-    qDebug() << newDirection << ", x=" << minDistTile->x << ", y="<< minDistTile->y;
 
     // should not be updated here
     currnetDirection = newDirection;

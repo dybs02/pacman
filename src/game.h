@@ -11,6 +11,7 @@
 #include "tileMap.h"
 #include "pacman.h"
 #include "ghost.h"
+#include "blinky.h"
 
 class Game : public QGraphicsView
 {
@@ -25,7 +26,7 @@ private:
     TileMap* tileMap;
     Pacman* pacman;
     QTimer timer;
-    Ghost* ghost;
+    Ghost* blinky;
 
 private slots:
     void loop();

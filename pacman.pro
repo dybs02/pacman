@@ -13,6 +13,7 @@ DESTDIR = .
 OBJECTS_DIR = build
 
 SOURCES += \
+    src/blinky.cpp \
     src/entity.cpp \
     src/game.cpp \
     src/ghost.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     src/tileMap.cpp
 
 HEADERS += \
+    src/blinky.h \
     src/definitions.h \
     src/entity.h \
     src/game.h \

@@ -34,9 +34,9 @@ Game::Game() : QGraphicsView()
     connect(&timer, &QTimer::timeout, this, &Game::loop);
     timer.start(1000/4);
 
-    ghost = new Ghost(4, 4, tileMap);
-    ghost->setTargetTile(1, 4);
-    scene->addItem(ghost);
+    blinky = new Blinky(tileMap);
+
+    scene->addItem(blinky);
 }
 
 Game::~Game()
@@ -47,8 +47,10 @@ Game::~Game()
 
 void Game::loop()
 {
+    blinky->setTargetTile(pacman->tileX, pacman->tileY);
+
     pacman->move();
-    ghost->move();
+    blinky->move();
 }
 
 
