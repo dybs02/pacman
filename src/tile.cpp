@@ -12,10 +12,14 @@ Tile::Tile(int x, int y, tileType type) : QGraphicsRectItem(), x(x), y(y), type(
     }
     if(type == boost) {
         item = nullptr;
-        setBrush(QBrush(Qt::red));
+//        setBrush(QBrush(Qt::red));
+        setBrush(QBrush(Qt::black));
+        setPen(QPen(Qt::red, 2));
     }
     if(type == coin) {
         item = nullptr;
-        setBrush(QBrush(Qt::yellow));
+//        setBrush(QBrush(Qt::yellow));
+        setBrush(QBrush(Qt::black));
+        setPen(QPen(Qt::yellow, 2));
     }
 }

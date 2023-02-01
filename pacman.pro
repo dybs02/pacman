@@ -12,18 +12,21 @@ QT += widgets
 DESTDIR = .
 OBJECTS_DIR = build
 
-
 SOURCES += \
+    src/entity.cpp \
     src/game.cpp \
     src/main.cpp \
     src/mapdata.cpp \
+    src/pacman.cpp \
     src/tile.cpp
 
 HEADERS += \
     src/definitions.h \
+    src/entity.h \
     src/game.h \
     src/mapdata.h \
+    src/pacman.h \
     src/tile.h
 
 RESOURCES += \
-    resources/sprites/map.png
+    resources/sprites/objects.png
