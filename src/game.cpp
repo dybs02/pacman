@@ -33,6 +33,10 @@ Game::Game() : QGraphicsView()
     // Timer
     connect(&timer, &QTimer::timeout, this, &Game::loop);
     timer.start(1000/4);
+
+    ghost = new Ghost(4, 4, tileMap);
+    ghost->setTargetTile(1, 4);
+    scene->addItem(ghost);
 }
 
 Game::~Game()
@@ -44,6 +48,7 @@ Game::~Game()
 void Game::loop()
 {
     pacman->move();
+    ghost->move();
 }
 
 

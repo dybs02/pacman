@@ -31,3 +31,16 @@ Tile* TileMap::tileAtIndex(QPoint indexes)
 {
     return tileMap[indexes.x()][indexes.y()];
 }
+
+float TileMap::distance(int x1, int y1, int x2, int y2)
+{
+    return distance(QPoint(x1, y1), QPoint(x2, y2));
+}
+
+float TileMap::distance(QPoint indexes1, QPoint indexes2)
+{
+    float xDelta = indexes1.x() - indexes2.x();
+    float yDelta = indexes1.y() - indexes2.y();
+
+    return sqrt(pow(xDelta, 2) + pow(yDelta, 2));
+}
