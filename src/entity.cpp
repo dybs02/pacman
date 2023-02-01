@@ -1,7 +1,7 @@
 #include "entity.h"
 
 
-Entity::Entity(int tileX, int tileY, Tile* (&tileMap)[WIDTH][HEIGHT]) : tileX(tileX), tileY(tileY)
+Entity::Entity(int tileX, int tileY, TileMap* tileMap) : tileX(tileX), tileY(tileY)
 {
     posX = tileX * TILE_SIZE;
     posY = tileY * TILE_SIZE;
@@ -9,7 +9,7 @@ Entity::Entity(int tileX, int tileY, Tile* (&tileMap)[WIDTH][HEIGHT]) : tileX(ti
     currnetDirection = LEFT;
     objectsPixmap = QPixmap(OBJECTS_PIXMAP);
 
-    this->tileMap = &tileMap;
+    this->tileMap = tileMap;
 }
 
 void Entity::moveBy(float x, float y)
@@ -28,11 +28,6 @@ void Entity::moveTo(int tileX, int tileY)
 
     posX = tileX * TILE_SIZE;
     posY = tileY * TILE_SIZE;
-}
-
-Tile* Entity::tileAtIndex(QPoint indexes)
-{
-    return (*tileMap)[indexes.x()][indexes.y()];
 }
 
 QPoint Entity::nextTile()

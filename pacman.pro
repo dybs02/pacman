@@ -18,7 +18,8 @@ SOURCES += \
     src/main.cpp \
     src/mapdata.cpp \
     src/pacman.cpp \
-    src/tile.cpp
+    src/tile.cpp \
+    src/tileMap.cpp
 
 HEADERS += \
     src/definitions.h \
@@ -26,7 +27,8 @@ HEADERS += \
     src/game.h \
     src/mapdata.h \
     src/pacman.h \
-    src/tile.h
+    src/tile.h \
+    src/tileMap.h
 
 RESOURCES += \
     resources/sprites/objects.png

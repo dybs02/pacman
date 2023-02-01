@@ -13,7 +13,7 @@ class Pacman : public QObject, public QGraphicsPixmapItem, public Entity
 {
     Q_OBJECT
 public:
-    Pacman(Tile* (&tileMap)[WIDTH][HEIGHT]);
+    Pacman(TileMap* tileMap);
     void move();
     void changeDirection();
     QPoint nextDirectionTile();

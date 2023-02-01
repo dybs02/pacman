@@ -1,7 +1,7 @@
 #include "pacman.h"
 #include <QDebug>
 
-Pacman::Pacman(Tile* (&tileMap)[WIDTH][HEIGHT])
+Pacman::Pacman(TileMap* tileMap)
     : QGraphicsPixmapItem(), Entity(13, 26, tileMap)
 {
     leftPixmap = objectsPixmap.copy(180, 0, TILE_SIZE, TILE_SIZE);
@@ -15,11 +15,11 @@ Pacman::Pacman(Tile* (&tileMap)[WIDTH][HEIGHT])
 
 void Pacman::move()
 {
-    if (tileAtIndex(nextDirectionTile())->type != wall) {
+    if (tileMap->tileAtIndex(nextDirectionTile())->type != wall) {
         changeDirection();
     }
 
-    if (tileAtIndex(nextTile())->type != wall) {
+    if (tileMap->tileAtIndex(nextTile())->type != wall) {
         Entity::moveTo(nextTile().x(), nextTile().y());
         setPos(posX, posY);
     }

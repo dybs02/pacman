@@ -8,6 +8,7 @@
 #include "definitions.h"
 #include "mapdata.h"
 #include "tile.h"
+#include "tileMap.h"
 #include "pacman.h"
 
 class Game : public QGraphicsView
@@ -20,11 +21,9 @@ public:
     ~Game();
 
 private:
-    Tile* tileMap[WIDTH][HEIGHT];
+    TileMap* tileMap;
     Pacman* pacman;
     QTimer timer;
-
-    Tile* tileAtIndex(QPoint indexes);
 
 private slots:
     void loop();

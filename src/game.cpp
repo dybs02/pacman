@@ -16,12 +16,11 @@ Game::Game() : QGraphicsView()
     setFrameStyle(QFrame::NoFrame);
 
     // Tiles
+    tileMap = new TileMap();
     for (int x = 0; x < WIDTH; x++) {
         for (int y = 0; y < HEIGHT; y++) {
             Tile* tile = new Tile(x, y, (tileType)tiles[y][x]);
-
-            tileMap[x][y] = tile;
-            scene->addItem(tile);
+            scene->addItem(tileMap->setTile(x, y, tile));
         }
     }
 
@@ -38,18 +37,8 @@ Game::Game() : QGraphicsView()
 
 Game::~Game()
 {
-    for (int x = 0; x < WIDTH; x++) {
-        for (int y = 0; y < HEIGHT; y++) {
-            delete tileMap[x][y];
-        }
-    }
-
+    delete tileMap;
     delete pacman;
-}
-
-Tile* Game::tileAtIndex(QPoint indexes)
-{
-    return tileMap[indexes.x()][indexes.y()];
 }
 
 void Game::loop()

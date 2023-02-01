@@ -3,6 +3,7 @@
 
 #include <QPixmap>
 
+#include "tileMap.h"
 #include "tile.h"
 #include "definitions.h"
 
@@ -15,14 +16,13 @@ public:
     int tileY;
     direction currnetDirection;
     QPixmap objectsPixmap;
-    Tile* (*tileMap)[WIDTH][HEIGHT];
+    TileMap* tileMap;
 
-    Entity(int tileX, int tileY, Tile* (&tileMap)[WIDTH][HEIGHT]);
+    Entity(int tileX, int tileY, TileMap* tileMap);
 
     void moveBy(float x, float y);
     void moveTo(int tileX, int tileY);
     QPoint nextTile();
-    Tile* tileAtIndex(QPoint indexes);
 };
 
 #endif // ENTITY_H
