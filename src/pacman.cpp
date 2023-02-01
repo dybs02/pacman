@@ -23,7 +23,22 @@ void Pacman::move()
         Entity::moveTo(nextTile().x(), nextTile().y());
         setPos(posX, posY);
     }
+}
 
+QPoint Pacman::nextTile()
+{
+    switch (currnetDirection) {
+    case UP:
+        return QPoint(tileX, tileY-1);
+    case DOWN:
+        return QPoint(tileX, tileY+1);
+    case LEFT:
+        return QPoint(tileX-1, tileY);
+    case RIGHT:
+        return QPoint(tileX+1, tileY);
+    case NONE:
+        return QPoint(tileX, tileY);
+    }
 }
 
 void Pacman::changeDirection()

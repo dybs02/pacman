@@ -29,19 +29,3 @@ void Entity::moveTo(int tileX, int tileY)
     posX = tileX * TILE_SIZE;
     posY = tileY * TILE_SIZE;
 }
-
-QPoint Entity::nextTile()
-{
-    switch (currnetDirection) {
-    case UP:
-        return QPoint(tileX, tileY-1);
-    case DOWN:
-        return QPoint(tileX, tileY+1);
-    case LEFT:
-        return QPoint(tileX-1, tileY);
-    case RIGHT:
-        return QPoint(tileX+1, tileY);
-    case NONE:
-        return QPoint(tileX, tileY);
-    }
-}

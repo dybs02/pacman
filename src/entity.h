@@ -22,7 +22,8 @@ public:
 
     void moveBy(float x, float y);
     void moveTo(int tileX, int tileY);
-    QPoint nextTile();
+    virtual QPoint nextTile() = 0;
+    virtual void move() = 0;
 };
 
 #endif // ENTITY_H

@@ -14,7 +14,8 @@ class Pacman : public QObject, public QGraphicsPixmapItem, public Entity
     Q_OBJECT
 public:
     Pacman(TileMap* tileMap);
-    void move();
+    void move() override;
+    QPoint nextTile() override;
     void changeDirection();
     QPoint nextDirectionTile();
 
