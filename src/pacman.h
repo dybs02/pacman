@@ -18,6 +18,7 @@ public:
     QPoint nextTile() override;
     void changeDirection();
     QPoint nextDirectionTile();
+    QPoint tileInfront(int n);
 
 private:
     QPixmap leftPixmap;

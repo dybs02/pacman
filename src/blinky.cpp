@@ -6,4 +6,7 @@ Blinky::Blinky(TileMap* tileMap)
     setPixmap(objectsPixmap.copy(30, 30, OBJECT_SIZE, OBJECT_SIZE).scaled(TILE_SIZE, TILE_SIZE));
     currnetDirection = LEFT;
 
+    scatterX = WIDTH-1;
+    scatterY = 1;
+    setModeScatter();
 }

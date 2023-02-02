@@ -20,6 +20,7 @@ SOURCES += \
     src/main.cpp \
     src/mapdata.cpp \
     src/pacman.cpp \
+    src/pinky.cpp \
     src/tile.cpp \
     src/tileMap.cpp
 
@@ -31,6 +32,7 @@ HEADERS += \
     src/ghost.h \
     src/mapdata.h \
     src/pacman.h \
+    src/pinky.h \
     src/tile.h \
     src/tileMap.h
 

@@ -6,8 +6,8 @@
 #define WIDTH 28
 #define HEIGHT 36
 
-#define GHOST_SPAWN_X 14
-#define GHOST_SPAWN_Y 17
+#define GHOST_SPAWN_X 13
+#define GHOST_SPAWN_Y 18
 #define MODE_DELAY 10000
 
 #define MOVE_SPPED 0.5f

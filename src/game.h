@@ -15,6 +15,7 @@
 #include "pacman.h"
 #include "ghost.h"
 #include "blinky.h"
+#include "pinky.h"
 
 class Game : public QGraphicsView
 {
@@ -33,6 +34,7 @@ private:
     QTimer timer;
     QTimer ghostModeTimer;
     Ghost* blinky;
+    Ghost* pinky;
     int remainingCoins;
     int score;
     QGraphicsSimpleTextItem* scoreText;

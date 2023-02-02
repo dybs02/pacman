@@ -63,10 +63,24 @@ QPoint Pacman::nextDirectionTile()
     }
 }
 
+QPoint Pacman::tileInfront(int n)
+{
+    switch (currnetDirection) {
+    case UP:
+        return QPoint(tileX, tileY-n);
+    case DOWN:
+        return QPoint(tileX, tileY+n);
+    case LEFT:
+        return QPoint(tileX-n, tileY);
+    case RIGHT:
+        return QPoint(tileX+n, tileY);
+    case NONE:
+        return QPoint(tileX, tileY-n);
+    }
+}
+
 void Pacman::keyPressEvent(QKeyEvent *event)
 {
-    qDebug() << "key event";
-
     switch (event->key()) {
     case Qt::Key_Up:
         nextDirection = UP;

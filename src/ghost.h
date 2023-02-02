@@ -21,7 +21,7 @@ public:
     void setModeChase();
     void setModeScatter();
 
-private:
+protected:
     int targetX;
     int targetY;
     int chaseX;
