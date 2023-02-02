@@ -53,18 +53,22 @@ Game::Game() : QGraphicsView()
     // Blinky
     blinky = new Blinky(tileMap);
     scene->addItem(blinky);
+    ghosts[0] = blinky;
 
     // Pinky
     pinky = new Pinky(tileMap);
     scene->addItem(pinky);
-
+    ghosts[1] = pinky;
+    
     // Inky
     inky = new Inky(tileMap);
     scene->addItem(inky);
+    ghosts[2] = inky;
 
     // Clyde
     clyde = new Clyde(tileMap);
     scene->addItem(clyde);
+	ghosts[3] = clyde;
 
     // Timer
     connect(&timer, &QTimer::timeout, this, &Game::loop);
@@ -97,18 +101,11 @@ void Game::gameWon()
 
 void Game::checkCollisions()
 {
-    if (pacman->collides(blinky)) {
-        gameOver();
-    }
-    if (pacman->collides(pinky)) {
-        gameOver();
-    }
-    if (pacman->collides(inky)) {
-        gameOver();
-    }
-    if (pacman->collides(clyde)) {
-        gameOver();
-    }
+	for(int i = 0; i < 4; ++i) {	
+		if (pacman->collides(ghosts[i])) {
+			gameOver();
+		}
+	}
 }
 
 void Game::checkCoins()
@@ -147,11 +144,12 @@ void Game::loop()
     }
 
     pacman->move();
-    blinky->move();
-    pinky->move();
-    inky->move();
-    clyde->move();
+    checkCollisions();
 
+	for(int i = 0; i < 4; ++i) {	
+		ghosts[i]->move();
+	}
+	
     checkCollisions();
     checkCoins();
 }

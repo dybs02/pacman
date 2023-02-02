@@ -35,6 +35,7 @@ private:
     Pacman* pacman;
     QTimer timer;
     QTimer ghostModeTimer;
+    Ghost* ghosts[4];
     Ghost* blinky;
     Ghost* pinky;
     Ghost* inky;
