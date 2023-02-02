@@ -6,12 +6,17 @@ Ghost::Ghost(int tileX, int tileY, TileMap* tileMap)
 {
     targetX = 0;
     targetY = 0;
+    chaseX = 0;
+    chaseY = 0;
+    scatterX = 0;
+    scatterY = 0;
+    mode = SCATTER;
 }
 
-void Ghost::setTargetTile(int tileX, int tileY)
+void Ghost::setChaseTile(int tileX, int tileY)
 {
-    targetX = tileX;
-    targetY = tileY;
+    chaseX = tileX;
+    chaseY = tileY;
 }
 
 void Ghost::move()
@@ -20,6 +25,8 @@ void Ghost::move()
 
     Entity::moveTo(next.x(), next.y());
     setPos(posX, posY);
+
+    qDebug() << "target: " << targetX << ", " << targetY;
 }
 
 QPoint Ghost::nextTile()
@@ -27,6 +34,11 @@ QPoint Ghost::nextTile()
     float minDist = MAXFLOAT;
     Tile* minDistTile = tileMap->tileAtIndex(tileX, tileY);
     direction newDirection = currnetDirection;
+
+    if (mode == CHASE) {
+        targetX = chaseX;
+        targetY = chaseY;
+    }
 
     // Up
     Tile* upTile = tileMap->tileAtIndex(tileX, tileY-1);
@@ -80,3 +92,40 @@ QPoint Ghost::nextTile()
     currnetDirection = newDirection;
     return QPoint(minDistTile->x, minDistTile->y);
 }
+
+void Ghost::setModeChase()
+{
+    mode = CHASE;
+    targetX = chaseX;
+    targetY = chaseY;
+}
+
+void Ghost::setModeScatter()
+{
+    mode = SCATTER;
+    targetX = scatterX;
+    targetY = scatterY;
+}
+
+void Ghost::changeMode()
+{
+    if (mode == SCATTER) {
+        setModeChase();
+    } else {
+        setModeScatter();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

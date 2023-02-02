@@ -29,3 +29,11 @@ void Entity::moveTo(int tileX, int tileY)
     posX = tileX * TILE_SIZE;
     posY = tileY * TILE_SIZE;
 }
+
+bool Entity::collides(Entity* e)
+{
+    if (tileX == e->tileX && tileY == e->tileY) {
+        return true;
+    }
+    return false;
+}

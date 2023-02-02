@@ -15,13 +15,23 @@ class Ghost : public QObject, public QGraphicsPixmapItem, public Entity
 public:
     Ghost(int tileX, int tileY, TileMap* tileMap);
 
-    void setTargetTile(int tileX, int tileY);
+    void setChaseTile(int tileX, int tileY);
     void move() override;
     QPoint nextTile() override;
+    void setModeChase();
+    void setModeScatter();
 
 private:
     int targetX;
     int targetY;
+    int chaseX;
+    int chaseY;
+    int scatterX;
+    int scatterY;
+    ghostMode mode;
+
+public slots:
+    void changeMode();
 };
 
 #endif // GHOST_H

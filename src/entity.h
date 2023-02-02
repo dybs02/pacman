@@ -24,6 +24,7 @@ public:
     void moveTo(int tileX, int tileY);
     virtual QPoint nextTile() = 0;
     virtual void move() = 0;
+    bool collides(Entity* e);
 };
 
 #endif // ENTITY_H
