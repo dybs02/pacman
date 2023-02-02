@@ -17,6 +17,7 @@ SOURCES += \
     src/entity.cpp \
     src/game.cpp \
     src/ghost.cpp \
+    src/inky.cpp \
     src/main.cpp \
     src/mapdata.cpp \
     src/pacman.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     src/entity.h \
     src/game.h \
     src/ghost.h \
+    src/inky.h \
     src/mapdata.h \
     src/pacman.h \
     src/pinky.h \

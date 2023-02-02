@@ -58,11 +58,16 @@ Game::Game() : QGraphicsView()
     pinky = new Pinky(tileMap);
     scene->addItem(pinky);
 
+    // Inky
+    inky = new Inky(tileMap);
+    scene->addItem(inky);
+
     // Timer
     connect(&timer, &QTimer::timeout, this, &Game::loop);
     timer.start(1000/FPS);
     connect(&ghostModeTimer, &QTimer::timeout, blinky, &Ghost::changeMode);
     connect(&ghostModeTimer, &QTimer::timeout, pinky, &Ghost::changeMode);
+    connect(&ghostModeTimer, &QTimer::timeout, inky, &Ghost::changeMode);
     ghostModeTimer.start(MODE_DELAY);
 }
 
@@ -72,6 +77,7 @@ Game::~Game()
     delete pacman;
     delete blinky;
     delete pinky;
+    delete inky;
 }
 
 void Game::gameOver()
@@ -90,6 +96,9 @@ void Game::checkCollisions()
         gameOver();
     }
     if (pacman->collides(pinky)) {
+        gameOver();
+    }
+    if (pacman->collides(inky)) {
         gameOver();
     }
 }
@@ -119,9 +128,13 @@ void Game::loop()
     QPoint pinkyTarget = pacman->tileInfront(4);
     pinky->setChaseTile(pinkyTarget.x(), pinkyTarget.y());
 
+    QPoint inkyTarget = pacman->tileInfront(-3);
+    inky->setChaseTile(inkyTarget.x(), inkyTarget.y());
+
     pacman->move();
     blinky->move();
     pinky->move();
+    inky->move();
 
     checkCollisions();
     checkCoins();
