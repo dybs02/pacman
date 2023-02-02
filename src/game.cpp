@@ -62,6 +62,10 @@ Game::Game() : QGraphicsView()
     inky = new Inky(tileMap);
     scene->addItem(inky);
 
+    // Clyde
+    clyde = new Clyde(tileMap);
+    scene->addItem(clyde);
+
     // Timer
     connect(&timer, &QTimer::timeout, this, &Game::loop);
     timer.start(1000/FPS);
@@ -78,6 +82,7 @@ Game::~Game()
     delete blinky;
     delete pinky;
     delete inky;
+    delete clyde;
 }
 
 void Game::gameOver()
@@ -99,6 +104,9 @@ void Game::checkCollisions()
         gameOver();
     }
     if (pacman->collides(inky)) {
+        gameOver();
+    }
+    if (pacman->collides(clyde)) {
         gameOver();
     }
 }
@@ -131,10 +139,18 @@ void Game::loop()
     QPoint inkyTarget = pacman->tileInfront(-3);
     inky->setChaseTile(inkyTarget.x(), inkyTarget.y());
 
+    if (tileMap->distance(clyde->tileX, clyde->tileY, pacman->tileX, pacman->tileY) < 8) {
+        clyde->setModeScatter();
+        clyde->setChaseTile(pacman->tileX, pacman->tileY);
+    } else {
+        clyde->setModeScatter();
+    }
+
     pacman->move();
     blinky->move();
     pinky->move();
     inky->move();
+    clyde->move();
 
     checkCollisions();
     checkCoins();

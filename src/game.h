@@ -17,6 +17,7 @@
 #include "blinky.h"
 #include "pinky.h"
 #include "inky.h"
+#include "clyde.h"
 
 class Game : public QGraphicsView
 {
@@ -37,6 +38,7 @@ private:
     Ghost* blinky;
     Ghost* pinky;
     Ghost* inky;
+    Ghost* clyde;
     int remainingCoins;
     int score;
     QGraphicsSimpleTextItem* scoreText;

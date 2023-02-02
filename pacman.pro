@@ -14,6 +14,7 @@ OBJECTS_DIR = build
 
 SOURCES += \
     src/blinky.cpp \
+    src/clyde.cpp \
     src/entity.cpp \
     src/game.cpp \
     src/ghost.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     src/blinky.h \
+    src/clyde.h \
     src/definitions.h \
     src/entity.h \
     src/game.h \
