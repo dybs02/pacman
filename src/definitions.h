@@ -8,11 +8,13 @@
 
 #define GHOST_SPAWN_X 14
 #define GHOST_SPAWN_Y 17
+#define MODE_DELAY 10000
 
 #define MOVE_SPPED 0.5f
-#define FPS 60
+#define FPS 4
 
 #define OBJECTS_PIXMAP ":/resources/sprites/objects.png"
+#define PATH_TO_FONT ":/resources/fonts/arcadepi.ttf"
 
 enum tileType {
     empty,
@@ -29,6 +31,11 @@ enum direction {
     LEFT,
     RIGHT,
     NONE
+};
+
+enum ghostMode {
+    CHASE,
+    SCATTER
 };
 
 #endif // DEFINITIONS_H

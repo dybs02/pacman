@@ -35,4 +35,5 @@ HEADERS += \
     src/tileMap.h
 
 RESOURCES += \
-    resources/sprites/objects.png
+    resources/sprites/objects.png \
+    resources/fonts/arcadepi.ttf

@@ -4,6 +4,9 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <QApplication>
+#include <QFontDatabase>
+#include <QGraphicsSimpleTextItem>
 
 #include "definitions.h"
 #include "mapdata.h"
@@ -21,12 +24,21 @@ public:
 
     Game();
     ~Game();
+    void checkCollisions();
+    void checkCoins();
 
 private:
     TileMap* tileMap;
     Pacman* pacman;
     QTimer timer;
+    QTimer ghostModeTimer;
     Ghost* blinky;
+    int remainingCoins;
+    int score;
+    QGraphicsSimpleTextItem* scoreText;
+
+    void gameOver();
+    void gameWon();
 
 private slots:
     void loop();
